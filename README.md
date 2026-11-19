@@ -1,2 +1,26 @@
-# Maine-Project
-Python 3 is here
+# Main Project
+## Diamine PES Benchmark
+The program will read XYZ geometries for the four minima (M1–M4) and the available transition states. After checking atom ordering and aligning the structures, it will use principal component analysis (PCA) to project the geometries onto two axes. Each point will represent one stationary structure, with color indicating its relative electronic energy in eV and marker shape distinguishing minima from transition states.
+It will also be used to benchmark 17 DFT functionals and several coupledcluster method for a diamine radical cation. It will assess which stationary points each functional reproduces and compare relative energies and barriers on common geometries.
+
+This is the code structure
+
+```text
+diamine_pes_benchmark/
+|----- __init__.py
+|----- models.py        # Methods, stationary points, and Calculation Result classes
+|----- csv_io.py        # Read/write (Read and validate calculation records and write summary CSVs
+|----- geometry_io.py   # matching class (Read XYZ files and match each geometry to its calculation record)
+|----- coverage.py      # Report which minima and transition states each functional reproduces
+|----- energetics.py    # comparing class (Compare relative energies and barriers on shared geometries)
+|----- projection.py    # Aligning class (Aligning geometries and compute their PC1 and PC2 coordinates)
+|----- plotting.py      # Plotting class (Plot coverage, energy comparisons, and PCA maps of stationary points)
+|----- cli.py           # benchmark class (Select the coupled-cluster reference and run the benchmark)
+
+```
+#Potential Surface Visualization
+
+![]()
+
+#
+
