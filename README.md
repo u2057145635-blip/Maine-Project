@@ -3,7 +3,7 @@
 The program will read XYZ geometries for the four minima (M1–M4) and the available transition states. After checking atom ordering and aligning the structures, it will use principal component analysis (PCA) to project the geometries onto two axes. Each point will represent one stationary structure, with color indicating its relative electronic energy in eV and marker shape distinguishing minima from transition states.
 It will also be used to benchmark 17 DFT functionals and several coupledcluster method for a diamine radical cation. It will assess which stationary points each functional reproduces and compare relative energies and barriers on common geometries.
 
-This is the code structure
+## Code Structure
 
 ```text
 diamine_pes_benchmark/
@@ -18,9 +18,10 @@ diamine_pes_benchmark/
 |----- cli.py           # benchmark class (Select the coupled-cluster reference and run the benchmark)
 
 ```
-#Potential Surface Visualization
+## Potential Surface Visualization
+### Spin-Density
 
-![]()
+![Spin-Density](dae-spin-density.png)
 
 #
 
