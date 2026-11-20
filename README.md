@@ -8,7 +8,7 @@ A modular Python package for analyzing, projecting, and benchmarking the Potenti
 
 ## Scientific Background & Objectives
 
-Mixed-valence diamine radical cations present a stringent test for electronic-structure methods due to the delicate interplay between **electron correlation** and **self-interaction error (SIE)** [1, 2]. Unlike larger benchmark systems such as $N,N$-dimethylpiperazine ($\text{DMP}^{\bullet+}$), the smaller diaminoethane radical cation exhibits a rich PES featuring **four distinct minima** ($M_1–M_4$) and **four connecting transition states** ($ \ text {TS} _ {1,2}$, \text{TS}_{1,3}, \text{TS}_{2,3}, \text{TS}_{3,4}$).
+Mixed-valence diamine radical cations present a stringent test for electronic-structure methods due to the delicate interplay between **electron correlation** and **self-interaction error (SIE)** [1, 2]. Unlike larger benchmark systems such as $N,N$-dimethylpiperazine ($\text{DMP}^{+}$), the smaller diaminoethane radical cation exhibits a rich PES featuring **four distinct minima** ($M_1–M_4$) and **four connecting transition states** ($ \ text {TS} _ {1,2}$, \text{TS}_{1,3}, \text{TS}_{2,3}, \text{TS}_{3,4}$).
 
 This repository provides a reproducible workflow to:
 1. **Low-Dimensional PES Mapping (PCA):** Align stationary-point geometries and project the high-dimensional nuclear configuration space onto two principal components ($\text{PC}_1, \text{PC}_2$), colored by relative electronic energy ($\Delta E$ in $\text{eV}$).
