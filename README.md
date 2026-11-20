@@ -2,7 +2,7 @@
 ## Diamine PES Benchmark
 # Diamine PES Benchmark
 
-A modular Python package for analyzing, projecting, and benchmarking the Potential Energy Surface (PES) of the **diaminoethane radical cation** ($\text{C}_2\text{H}_8\text{N}_2^{\bullet+}$) across Density Functional Theory (DFT) approximations and Coupled-Cluster reference methods.
+A modular Python package for analyzing, projecting, and benchmarking the Potential Energy Surface (PES) of the **diaminoethane radical cation** ($\text{C}_2\text{H}_8\text{N}_2^{+}$) across Density Functional Theory (DFT) approximations and Coupled-Cluster reference methods.
 
 ---
 
