@@ -24,7 +24,7 @@ This repository provides a reproducible workflow to:
 diamine_pes_benchmark/
 ├── __init__.py
 ├── models.py          # Core domain classes: StationaryPoint, ElectronicMethod, CalculationRecord, PESDataset
-├── parsers.py         # XYZ/CSV readers, atom-order validation, and Kabsch structural alignment
+├── parsers.py         # XYZ/CSV readers, atom-order validation
 ├── projection.py      # GeometryProjector class for PCA and internal-coordinate embeddings
 ├── benchmark.py       # PESBenchmark class for topological coverage (M1 stability)
 ├── reporting.py       # TableExporter class for LaTeX/CSV tables (cc-pVTZ, cc-pVQZ, Coupled Cluster)
