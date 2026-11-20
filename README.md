@@ -26,7 +26,7 @@ diamine_pes_benchmark/
 ├── models.py          # Core domain classes: StationaryPoint, ElectronicMethod, CalculationRecord, PESDataset
 ├── parsers.py         # XYZ/CSV readers, atom-order validation, and Kabsch structural alignment
 ├── projection.py      # GeometryProjector class for PCA and internal-coordinate embeddings
-├── benchmark.py       # PESBenchmark class for topological coverage (M1 stability) & error metrics vs
+├── benchmark.py       # PESBenchmark class for topological coverage (M1 stability)
 ├── reporting.py       # TableExporter class for LaTeX/CSV tables (cc-pVTZ, cc-pVQZ, Coupled Cluster)
 ├── visualization.py   # PESPlotter class for 2D PCA PES maps and energy profile diagrams
 └── cli.py             # Command-line entry point tying the pipeline together
