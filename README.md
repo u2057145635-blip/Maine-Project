@@ -1,22 +1,31 @@
 # Main Project
 ## Diamine PES Benchmark
-The program will read XYZ geometries for the four minima (M1–M4) and the available transition states. After checking atom ordering and aligning the structures, it will use principal component analysis (PCA) to project the geometries onto two axes. Each point will represent one stationary structure, with color indicating its relative electronic energy in eV and marker shape distinguishing minima from transition states.
-It will also be used to benchmark 17 DFT functionals and several coupledcluster method for a diamine radical cation. It will assess which stationary points each functional reproduces and compare relative energies and barriers on common geometries.
+# Diamine PES Benchmark
 
+A modular Python package for analyzing, projecting, and benchmarking the Potential Energy Surface (PES) of the **diaminoethane radical cation** ($\text{C}_2\text{H}_8\text{N}_2^{\bullet+}$) across Density Functional Theory (DFT) approximations and Coupled-Cluster reference methods.
+
+---
+
+## Scientific Background & Objectives
+
+Mixed-valence diamine radical cations present a stringent test for electronic-structure methods due to the delicate interplay between **electron correlation** and **self-interaction error (SIE)** [1, 2]. Unlike larger benchmark systems such as $N,N$-dimethylpiperazine ($\text{DMP}^{\bullet+}$), the smaller diaminoethane radical cation exhibits a rich PES featuring **four distinct minima** ($M_1$–$M_4$) and **four connecting transition states** ($\text{TS}_{1,2}$, $\text{TS}_{1,3}$, $\text{TS}_{2,3}$, $\text{TS}_{3,4}$).
+
+This repository provides a reproducible workflow to:
+1. **Low-Dimensional PES Mapping (PCA):** Align stationary-point geometries and project the high-dimensional nuclear configuration space onto two principal components ($\text{PC}_1, \text{PC}_2$), colored by relative electronic energy ($\Delta E$ in $\text{eV}$).
+2. **Topological & Energetic Benchmarking:** Evaluate **17 DFT functionals** spanning Jacob's ladder (GGA, meta-GGA, hybrid-GGA, hybrid-meta-GGA, range-separated hybrid, and double-hybrid) against high-level **Coupled-Cluster** benchmarks (up to $\text{CCSDT(Q)}$).
+3. **Automated Manuscript Reporting:** Generate publication-ready figures and LaTeX/CSV energy tables across `cc-pVTZ` and `cc-pVQZ` basis sets.
 ## Code-Structure
 
 ```text
 diamine_pes_benchmark/
-|----- __init__.py
-|----- models.py        # Methods, stationary points, and Calculation Result classes
-|----- csv_io.py        # Read/write (Read and validate calculation records and write summary CSVs
-|----- geometry_io.py   # matching class (Read XYZ files and match each geometry to its calculation record)
-|----- coverage.py      # Report which minima and transition states each functional reproduces
-|----- energetics.py    # comparing class (Compare relative energies and barriers on shared geometries)
-|----- projection.py    # Aligning class (Aligning geometries and compute their PC1 and PC2 coordinates)
-|----- plotting.py      # Plotting class (Plot coverage, energy comparisons, and PCA maps of stationary points)
-|----- cli.py           # benchmark class (Select the coupled-cluster reference and run the benchmark)
-
+├── __init__.py
+├── models.py          # Core data structures: StationaryPoint, Method, CalculationRecord, PESDataset
+├── parsers.py         # Read XYZ geometries, energy tables (CSV/JSON), and align atom ordering (Kabsch/RMSD)
+├── projection.py      # Dimensionality reduction: PCA & distance-matrix embedding to map 3N-6 coordinates to 2D
+├── benchmark.py       # Topology & energetics analysis: M1 stability check, barrier heights, MAE/RMSE vs. CCSDT(Q)
+├── reporting.py       # Export publication-ready LaTeX/CSV tables (Tables 3, 4 & SI)
+├── visualization.py   # Generate Figure 1 (2D PCA PES map) and PES energy profiles (grouped by Jacob's ladder)
+└── cli.py             # Command-line interface orchestrating the full pipeline
 ```
 ## Mathematical Formulation
 
