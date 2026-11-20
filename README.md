@@ -18,6 +18,25 @@ diamine_pes_benchmark/
 |----- cli.py           # benchmark class (Select the coupled-cluster reference and run the benchmark)
 
 ```
+## Mathematical Formulation
+
+### 1. Relative Energies & Barrier Heights
+For a given electronic-structure method $m$ and basis set $b$, the relative electronic energy $\Delta E_i^{(m,b)}$ of stationary point $i$ (in $\text{eV}$) is referenced to the global minimum ($M_4$):
+
+$$\Delta E_i^{(m,b)} = \left( E_i^{(m,b)} - E_{M_4}^{(m,b)} \right) \times 27.211386$$
+
+where $E$ is the electronic energy in Hartree ($E_h$). Error metrics (MAE and RMSE) are evaluated on common stationary points against the Coupled-Cluster reference ($\Delta E_i^{\text{ref}}$):
+
+$$\text{MAE}^{(m)} = \frac{1}{N_{\text{shared}}} \sum_{i=1}^{N_{\text{shared}}} \left\vert{} \Delta E_i^{(m)} - \Delta E_i^{\text{ref}} \right\vert{}$$
+
+### 2. Structural Alignment & Principal Component Analysis (PCA)
+Prior to dimensionality reduction, all $N$-atom geometries $\mathbf{X}_i \in \mathbb{R}^{N \times 3}$ are centered at their centroid and aligned to a reference structure $\mathbf{X}_{\text{ref}}$ using the **Kabsch algorithm** to remove rigid translations and rotations:
+
+$$\min_{\mathbf{R} \in SO(3)} \left\Vert{} \mathbf{X}_i \mathbf{R} - \mathbf{X}_{\text{ref}} \right\Vert{}_F$$
+
+Flattening the aligned coordinates into row vectors $\mathbf{x}_i \in \mathbb{R}^{3N}$ forms the centered data matrix $\tilde{\mathbf{X}} \in \mathbb{R}^{M \times 3N}$. Singular Value Decomposition ($\tilde{\mathbf{X}} = \mathbf{U}\mathbf{\Sigma}\mathbf{V}^T$) yields the 2D projection coordinates along the top two principal modes:
+
+$$\mathbf{Z} = \tilde{\mathbf{X}} \mathbf{V}_{:, 1:2}$$
 ## Potential Surface Visualization
 ### Spin-Density
 
