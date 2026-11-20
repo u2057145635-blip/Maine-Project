@@ -38,10 +38,7 @@ For a given electronic-structure method $m$ and basis set $b$, the relative elec
 
 $$\Delta E_i^{(m,b)} = \left( E_i^{(m,b)} - E_{M_4}^{(m,b)} \right) \times 27.211386$$
 
-where $E$ is the electronic energy in Hartree ($E_h$). Error metrics (MAE and RMSE) are evaluated on common stationary points against the Coupled-Cluster reference ($\Delta E_i^{\text{ref}}$):
-
-$$\text{MAE}^{(m)} = \frac{1}{N_{\text{shared}}} \sum_{i=1}^{N_{\text{shared}}} \left\vert{} \Delta E_i^{(m)} - \Delta E_i^{\text{ref}} \right\vert{}$$
-
+where $E$ is the electronic energy in Hartree ($E_h$). 
 ### 2. Structural Alignment & Principal Component Analysis (PCA)
 
 
