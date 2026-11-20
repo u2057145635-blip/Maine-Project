@@ -30,13 +30,8 @@ where $E$ is the electronic energy in Hartree ($E_h$). Error metrics (MAE and RM
 $$\text{MAE}^{(m)} = \frac{1}{N_{\text{shared}}} \sum_{i=1}^{N_{\text{shared}}} \left\vert{} \Delta E_i^{(m)} - \Delta E_i^{\text{ref}} \right\vert{}$$
 
 ### 2. Structural Alignment & Principal Component Analysis (PCA)
-Prior to dimensionality reduction, all $N$-atom geometries $\mathbf{X}_i \in \mathbb{R}^{N \times 3}$ are centered at their centroid and aligned to a reference structure $\mathbf{X}_{\text{ref}}$ using the **Kabsch algorithm** to remove rigid translations and rotations:
 
-$$\min_{\mathbf{R} \in SO(3)} \left\Vert{} \mathbf{X}_i \mathbf{R} - \mathbf{X}_{\text{ref}} \right\Vert{}_F$$
 
-Flattening the aligned coordinates into row vectors $\mathbf{x}_i \in \mathbb{R}^{3N}$ forms the centered data matrix $\tilde{\mathbf{X}} \in \mathbb{R}^{M \times 3N}$. Singular Value Decomposition ($\tilde{\mathbf{X}} = \mathbf{U}\mathbf{\Sigma}\mathbf{V}^T$) yields the 2D projection coordinates along the top two principal modes:
-
-$$\mathbf{Z} = \tilde{\mathbf{X}} \mathbf{V}_{:, 1:2}$$
 ## Potential Surface Visualization
 ### Spin-Density
 
