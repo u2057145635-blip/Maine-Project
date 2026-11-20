@@ -19,13 +19,13 @@ This repository provides a reproducible workflow to:
 ```text
 diamine_pes_benchmark/
 ├── __init__.py
-├── models.py          # Core data structures: StationaryPoint, Method, CalculationRecord, PESDataset
-├── parsers.py         # Read XYZ geometries, energy tables (CSV/JSON), and align atom ordering (Kabsch/RMSD)
-├── projection.py      # Dimensionality reduction: PCA & distance-matrix embedding to map 3N-6 coordinates to 2D
-├── benchmark.py       # Topology & energetics analysis: M1 stability check, barrier heights, MAE/RMSE vs. CCSDT(Q)
-├── reporting.py       # Export publication-ready LaTeX/CSV tables (Tables 3, 4 & SI)
-├── visualization.py   # Generate Figure 1 (2D PCA PES map) and PES energy profiles (grouped by Jacob's ladder)
-└── cli.py             # Command-line interface orchestrating the full pipeline
+├── models.py          # Core domain classes: StationaryPoint, ElectronicMethod, CalculationRecord, PESDataset
+├── parsers.py         # XYZ/CSV readers, atom-order validation, and Kabsch structural alignment
+├── projection.py      # GeometryProjector class for PCA and internal-coordinate embeddings
+├── benchmark.py       # PESBenchmark class for topological coverage (M1 stability) & error metrics vs
+├── reporting.py       # TableExporter class for LaTeX/CSV tables (cc-pVTZ, cc-pVQZ, Coupled Cluster)
+├── visualization.py   # PESPlotter class for 2D PCA PES maps and energy profile diagrams
+└── cli.py             # Command-line entry point tying the pipeline together
 ```
 ## Mathematical Formulation
 
